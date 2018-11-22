@@ -17,8 +17,10 @@ class ItemViewModel(val dao: ItemDao): BaseViewModel() {
 
     fun saveItem(item: Item){
         dao.insertAll(item)
-
-//        innerRepositoryResult.postValue(dao.getAll())
     }
 
+
+    fun deleteAll(){
+        dao.nukeTable()
+    }
 }

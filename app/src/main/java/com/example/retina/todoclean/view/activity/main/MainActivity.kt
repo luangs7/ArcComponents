@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View, OnClickRepo
 
 
     override fun onClickItem(item: Item) {
+        item.isOpen = false
         presenter.setItemClose(item)
     }
 }

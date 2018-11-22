@@ -11,6 +11,10 @@ class MainActivityPresenter(val viewModel: ItemViewModel) : MainActivityContract
     fun injectView(view: MainActivityContract.View) {
         this.view = view
         view.bindViews()
+
+        runAsync {
+            viewModel.deleteAll()
+        }
     }
 
     override fun saveItem(item: Item) {
@@ -22,14 +26,16 @@ class MainActivityPresenter(val viewModel: ItemViewModel) : MainActivityContract
     }
 
     override fun getItemDetails(item: Item) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun setItemClose(item: Item) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        runAsync {
+            viewModel.saveItem(item)
+        }
     }
 
     override fun updateList(itens: List<Item>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 }
